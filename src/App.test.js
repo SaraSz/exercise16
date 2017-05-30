@@ -24,7 +24,13 @@ test("Test email input", () => {
 
 test("Test nameinput state", () => {
   let wrapper = shallow(<App/>);
-  expect(wrapper.contains("nameValue")).toBe("")
+  expect(wrapper.state("nameValue")).toBe("")
+                        
+});
+
+test("Test emailinput state", () => {
+  let wrapper = shallow(<App/>);
+  expect(wrapper.state("emailValue")).toBe("")
                         
 });
 
