@@ -10,6 +10,7 @@ class App extends Component {
         emailValue: ""
       }
     this.handleInputName = this.handleInputName.bind(this);
+    this.handleInputEmail = this.handleInputEmail.bind(this);
   }
   
   handleInputName(event){
@@ -18,12 +19,18 @@ class App extends Component {
     })
   }
   
+  handleInputEmail(event) {
+    this.setState({
+      emailValue : event.target.value
+    })
+  }
+  
   render() {
     return (
       <div className="App">
       
-        <input placeholder="Name" className="nameInput" value={this.state.nameValue} onChange={this.handleinputName}/>
-        <input placeholder="Email" className="emailInput"/>
+        <input placeholder="Name" className="nameInput" value={this.state.nameValue} onChange={this.handleInputName}/>
+        <input placeholder="Email" className="emailInput" value={this.state.emailValue} onChange={this.handleInputEmail}/>
       </div>
 
     );
