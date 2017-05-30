@@ -56,5 +56,12 @@ test("Emailinput state change", () => {
                         
 });
 
+test("Test input-element", () => {
+  let wrapper = shallow(<Button/>);
+  const btn = <button>Clear</button>;
+  expect(wrapper.find(".Button")).toBe(btn);
+                        
+});
+
 
 

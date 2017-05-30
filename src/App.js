@@ -28,11 +28,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      
         <input placeholder="Name" className="nameInput" value={this.state.nameValue} onChange={this.handleInputName}/>
         <input placeholder="Email" className="emailInput" value={this.state.emailValue} onChange={this.handleInputEmail}/>
       </div>
 
+    );
+  }
+}
+
+class Button extends Component {
+  render() {
+    return(
+    <div className="Button">
+    </div>
     );
   }
 }
