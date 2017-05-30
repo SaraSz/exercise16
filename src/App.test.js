@@ -11,14 +11,14 @@ it('renders without crashing', () => {
 test("Test input-element", () => {
   let wrapper = shallow(<App/>);
   const greeting = <input placeholder="Name"/>;
-  expect(wrapper.contains(greeting)).toBe(true)
+  expect(wrapper.find(".nameInput").length).toBe(1)
                         
 });
 
 test("Test email input", () => {
   let wrapper = shallow(<App/>);
   const greeting = <input placeholder="Email"/>;
-  expect(wrapper.contains(greeting)).toBe(true)
+  expect(wrapper.find(".emailInput").length).toBe(1)
                         
 });
 
@@ -40,8 +40,19 @@ test("Nameinput state change", () => {
     target: {
       value: "Sara"
     }
-  })
+  });
   expect(wrapper.state("nameValue")).toBe("Sara")
+                        
+});
+
+test("Emailinput state change", () => {
+  let wrapper = shallow(<App/>);
+  wrapper.find(".emailInput").simulate("change", {
+    target: {
+      value: "me@me.com"
+    }
+  });
+  expect(wrapper.state("emailValue")).toBe("me@me.com")
                         
 });
 
