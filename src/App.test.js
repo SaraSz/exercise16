@@ -10,8 +10,10 @@ it('renders without crashing', () => {
 
 test("Test input-element", () => {
   let wrapper = shallow(<App/>);
-  const greeting = <input placeholder="name"/>;
+  const greeting = <input placeholder="Name"/>;
   expect(wrapper.contains(greeting)).toBe(true)
                         
 });
+
+
 
