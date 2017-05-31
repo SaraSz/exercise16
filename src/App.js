@@ -36,13 +36,5 @@ class App extends Component {
   }
 }
 
-class Button extends Component {
-  render() {
-    return(
-    <div className="Button">
-    </div>
-    );
-  }
-}
 
 export default App;

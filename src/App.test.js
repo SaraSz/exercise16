@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import {shallow} from "enzyme";
 
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<App />, div);
@@ -35,7 +36,7 @@ test("Test emailinput state", () => {
 });
 
 test("Nameinput state change", () => {
-  let wrapper = shallow(<App/>);
+  let wrapper = shallow(<App />);
   wrapper.find(".nameInput").simulate("change", {
     target: {
       value: "Sara"
@@ -56,12 +57,11 @@ test("Emailinput state change", () => {
                         
 });
 
-test("Test input-element", () => {
-  let wrapper = shallow(<Button/>);
-  const btn = <button>Clear</button>;
-  expect(wrapper.find(".Button")).toBe(btn);
-                        
-});
-
+test("Test button", () => {
+    let wrapper = shallow(<Button />);
+    let actual = wrapper.find("button").hasClass("clearButton");
+    let expected = true;
+    expect(actual).toBe(expected);
+})
 
 
