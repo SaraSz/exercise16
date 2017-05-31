@@ -62,6 +62,7 @@ test("Test button", () => {
     let actual = wrapper.find("button").hasClass("clearButton");
     let expected = true;
     expect(actual).toBe(expected);
-})
+});
+
 
 
