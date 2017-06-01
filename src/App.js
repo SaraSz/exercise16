@@ -12,7 +12,7 @@ class App extends Component {
       }
     this.handleInputName = this.handleInputName.bind(this);
     this.handleInputEmail = this.handleInputEmail.bind(this);
-    this.buttonClass = this.buttonClass.bind(this);
+    this.clearButton = this.clearButton.bind(this);
   }
   
   handleInputName(event){
@@ -27,7 +27,7 @@ class App extends Component {
     })
   }
   
-   buttonClass(event){
+   clearButton(event){
       this.setState({
           nameValue: "",
           emailValue: ""
@@ -38,13 +38,13 @@ class App extends Component {
     return (
       <div>
        <MyForm 
-          nameValue={this.nameValue} 
-          emailValue={this.emailValue} 
+          nameValue={this.state.nameValue} 
+          emailValue={this.state.emailValue} 
           handleInputName={this.handleInputName} 
           handleInputEmail={this.handleInputEmail}/>
       
        <Button 
-          buttonClass={this.buttonClass}/>
+          clearButton={this.clearButton}/>
       </div>
 
     );
