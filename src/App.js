@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Button from "./button.js"
+import MyForm from "./MyForm.js"
 
 class App extends Component {
   constructor(props){
@@ -11,7 +12,7 @@ class App extends Component {
       }
     this.handleInputName = this.handleInputName.bind(this);
     this.handleInputEmail = this.handleInputEmail.bind(this);
-    this.clearButton = this.clearButton.bind(this);
+    this.buttonClass = this.buttonClass.bind(this);
   }
   
   handleInputName(event){
@@ -26,7 +27,7 @@ class App extends Component {
     })
   }
   
-   clearButton(event){
+   buttonClass(event){
       this.setState({
           nameValue: "",
           emailValue: ""
@@ -35,11 +36,15 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        <input placeholder="Name" className="nameInput" value={this.state.nameValue} onChange={this.handleInputName}/>
-        <input placeholder="Email" className="emailInput" value={this.state.emailValue} onChange={this.handleInputEmail}/>
+      <div>
+       <MyForm 
+          nameValue={this.nameValue} 
+          emailValue={this.emailValue} 
+          handleInputName={this.handleInputName} 
+          handleInputEmail={this.handleInputEmail}/>
       
-       <Button clearButton={this.clearButton}/>
+       <Button 
+          buttonClass={this.buttonClass}/>
       </div>
 
     );

@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {shallow} from "enzyme";
+import { mount } from 'enzyme';
 import Button from './button';
+import MyForm from "./MyForm.js";
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -10,16 +12,16 @@ it('renders without crashing', () => {
 });
 
 test("Test input-element", () => {
-  let wrapper = shallow(<App/>);
+  let wrapper = shallow(<MyForm/>);
   const greeting = <input placeholder="Name"/>;
-  expect(wrapper.find(".nameInput").length).toBe(1)
+  expect(wrapper.find(".nameValue").length).toBe(1)
                         
 });
 
 test("Test email input", () => {
-  let wrapper = shallow(<App/>);
+  let wrapper = shallow(<MyForm/>);
   const greeting = <input placeholder="Email"/>;
-  expect(wrapper.find(".emailInput").length).toBe(1)
+  expect(wrapper.find(".emailValue").length).toBe(1)
                         
 });
 
@@ -36,8 +38,8 @@ test("Test emailinput state", () => {
 });
 
 test("Nameinput state change", () => {
-  let wrapper = shallow(<App />);
-  wrapper.find(".nameInput").simulate("change", {
+  let wrapper = mount(<App />);
+  wrapper.find(".nameValue").simulate("change", {
     target: {
       value: "Sara"
     }
@@ -47,8 +49,8 @@ test("Nameinput state change", () => {
 });
 
 test("Emailinput state change", () => {
-  let wrapper = shallow(<App/>);
-  wrapper.find(".emailInput").simulate("change", {
+  let wrapper = mount(<App/>);
+  wrapper.find(".emailValue").simulate("change", {
     target: {
       value: "me@me.com"
     }
@@ -59,7 +61,7 @@ test("Emailinput state change", () => {
 
 test("Test button", () => {
     let wrapper = shallow(<Button />);
-    let actual = wrapper.find("button").hasClass("clearButton");
+    let actual = wrapper.find("button").hasClass("buttonClass");
     let expected = true;
     expect(actual).toBe(expected);
 });
